@@ -1,0 +1,15 @@
+{
+  "name": "gamechat-wasm",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "gamechat_wasm_bg.wasm",
+    "gamechat_wasm.js",
+    "gamechat_wasm.d.ts"
+  ],
+  "main": "gamechat_wasm.js",
+  "types": "gamechat_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
