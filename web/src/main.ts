@@ -25,6 +25,7 @@ const updatePeers = () => { peersLabel.textContent = `Peers: ${peers.size}`; };
 
 async function connectPeer(remoteId: string, initiator: boolean) {
   if (peers.has(remoteId)) return peers.get(remoteId)!;
+  // TURN is intentionally disabled for the current small-scale MVP.
   const pc = new RTCPeerConnection({ iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] });
   peers.set(remoteId, pc); updatePeers();
   stream?.getTracks().forEach(track => pc.addTrack(track, stream!));
