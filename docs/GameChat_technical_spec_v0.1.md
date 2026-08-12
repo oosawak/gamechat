@@ -111,7 +111,7 @@ MVP は STUN のみを前提とし、TURN は後から追加可能な設定に�
 - マイク音声を Peer 間で送受信できる。
 - ミュート・退出ができる。
 
-IndexedDB、Google Forms / Groups、TURN、大人数対応、ビデオ通話、SFU は通信コアの後に追加する。
+IndexedDB の端末内履歴は通信コアに続く段階として実装済み。Google Forms / Groups、TURN、大人数対応、ビデオ通話、SFU は今後追加する。
 
 ## 12. 実装フェーズ
 
