@@ -5,6 +5,8 @@ WebRTC を使った P2P テキストチャットと音声通話の最小実装�
 
 仕様書は [docs/GameChat_technical_spec_v0.1.md](docs/GameChat_technical_spec_v0.1.md) に保存しています。
 
+Google Forms / Groups の設定手順は [docs/google-integration.md](docs/google-integration.md) にあります。Apps Script のコードは [apps-script/Code.gs](apps-script/Code.gs) に保存しています。
+
 ## 必要なツール
 
 - Rust / Cargo
@@ -54,6 +56,10 @@ npm run dev
 
 テキストメッセージはブラウザの IndexedDB に保存されます。同じ Room ID で再参加すると、その端末に保存された履歴を表示します。サーバーには履歴を保存しません。
 
+## Google 連携の現状
+
+参加申請の Google Form 送信を Apps Script で受け、Google Groups に `community` と選択カテゴリーのメンバーを追加できます。GameChat クライアントやシグナリングサーバーから Google API を直接呼び出しません。
+
 ## 現時点の制約
 
-Google Forms / Groups、TURN、ビデオ、SFU、認証トークンは未実装です。シグナリングサーバーも永続 DB を持ちません。
+Google Groups 所属をシグナリング参加資格として検証する短期トークン、TURN、ビデオ、SFU、認証トークンは未実装です。シグナリングサーバーも永続 DB を持ちません。

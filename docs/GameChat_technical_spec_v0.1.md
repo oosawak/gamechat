@@ -65,7 +65,7 @@ gamechat/
 
 ## 4. Google Forms / Google Groups
 
-Google 側はチャット本文の保存場所ではなく、参加受付と所属管理に集中させる。Google Forms の回答を Apps Script で処理し、community、game-dev、rust、wasm、3dcg、admin などの Google Groups へ登録する。これは通信コアの検証後に実装する。
+Google 側はチャット本文の保存場所ではなく、参加受付と所属管理に集中させる。Google Forms の回答を Apps Script で処理し、community、game-dev、rust、wasm、3dcg、admin などの Google Groups へ登録する。Apps Script の初期実装は `apps-script/Code.gs` に保存する。
 
 ## 5. Rust/WASM クライアント設計
 
@@ -111,7 +111,7 @@ MVP は STUN のみを前提とし、TURN は後から追加可能な設定に�
 - マイク音声を Peer 間で送受信できる。
 - ミュート・退出ができる。
 
-IndexedDB の端末内履歴は通信コアに続く段階として実装済み。Google Forms / Groups、TURN、大人数対応、ビデオ通話、SFU は今後追加する。
+IndexedDB の端末内履歴と Google Forms / Groups の申請・登録部分は実装済み。Group 所属の参加資格検証、TURN、大人数対応、ビデオ通話、SFU は今後追加する。
 
 ## 12. 実装フェーズ
 
@@ -120,7 +120,7 @@ IndexedDB の端末内履歴は通信コアに続く段階として実装済み�
 3. Phase 2: 音声、mute / unmute、退出
 4. Phase 3: UI とモバイル対応
 5. Phase 4: IndexedDB 履歴
-6. Phase 5: Google Forms / Groups 連携
+6. Phase 5: Google Forms / Groups 連携（申請・登録部分を実装済み）
 7. Phase 6: TURN、自動再接続、レート制限、ログ
 
 ## 13. セキュリティ / プライバシー
