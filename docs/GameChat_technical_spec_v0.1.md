@@ -110,6 +110,7 @@ Rust、Axum、Tokio、WebSocket を使用する。サーバー状態は `room_id
 - RTCDataChannel で双方向テキスト送受信できる。
 - マイク音声を Peer 間で送受信できる。
 - ミュート・退出ができる。
+- ICE / Peer の接続状態を画面で確認できる。
 
 IndexedDB の端末内履歴と Google Forms / Groups の申請・登録部分は実装済み。Group 所属の参加資格検証、TURN、大人数対応、ビデオ通話、SFU は今後追加する。
 
