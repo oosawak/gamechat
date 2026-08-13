@@ -43,6 +43,12 @@ npm run dev
 
 表示された Vite の URL をブラウザで開きます。ローカルでは `http://127.0.0.1:5173` を使用できます。
 
+## GitHub Pages
+
+`main` の `web/`、`wasm/`、`protocol/` に変更を push すると、GitHub Actions が WASM を再生成して Web クライアントを GitHub Pages へ公開します。リポジトリ設定の Pages で `GitHub Actions` を公開元に選択してください。
+
+公開後のクライアント URL は `https://oosawak.github.io/gamechat/` です。シグナリングサーバーは GitHub Pages では動かないため、別の HTTPS / WSS 対応環境で起動し、画面の `Signaling URL` に WSS URL を入力します。
+
 ## 2 ブラウザでの確認
 
 1. 2 つのブラウザタブで同じ URL を開く。
