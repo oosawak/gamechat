@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig(({ command }) => ({
-  // GitHub Pages serves this project below /gamechat/; dev stays at /.
-  base: command === 'build' ? '/gamechat/' : '/',
+  // Dev server stays at /; production build is emitted into docs/ for GitHub Pages.
+  base: command === 'build' ? './' : '/',
+  build: {
+    outDir: '../docs',
+    emptyOutDir: false,
+  },
 }));

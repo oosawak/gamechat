@@ -20,10 +20,17 @@ Google Forms / Groups の設定手順は [docs/google-integration.md](docs/googl
 
 ```sh
 cargo check
-wasm-pack build wasm --target web --out-dir ../web/src/wasm
 cd web
 npm install
 npm run build
+```
+
+`npm run build` の成果物は `docs/` に出力されます。`docs/` 直下の `index.html` と `assets/` を GitHub Pages の公開対象にします。
+
+`wasm/` の Rust コードを変更したときだけ、先に次を実行して `web/src/wasm/` を更新します。
+
+```sh
+wasm-pack build wasm --target web --out-dir ../web/src/wasm
 ```
 
 ## 起動
@@ -45,9 +52,21 @@ npm run dev
 
 ## GitHub Pages
 
-`main` の `web/`、`wasm/`、`protocol/` に変更を push すると、GitHub Actions が WASM を再生成して Web クライアントを GitHub Pages へ公開します。リポジトリ設定の Pages で `GitHub Actions` を公開元に選択してください。
+公開先は `docs/` フォルダです。GitHub リポジトリ設定の Pages で、`Deploy from a branch` を選び、`main` ブランチの `/docs` フォルダを指定してください。
 
 公開後のクライアント URL は `https://oosawak.github.io/gamechat/` です。シグナリングサーバーは GitHub Pages では動かないため、別の HTTPS / WSS 対応環境で起動し、画面の `Signaling URL` に WSS URL を入力します。
+
+公開手順は次の通りです。
+
+```sh
+cd wasm
+wasm-pack build --target web --out-dir ../web/src/wasm
+cd ../web
+npm run build
+git add docs web/src/wasm
+git commit -m "update docs deployment"
+git push
+```
 
 ## 2 ブラウザでの確認
 

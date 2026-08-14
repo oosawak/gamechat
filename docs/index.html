@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameChat</title>
+    <script type="module" crossorigin src="./assets/index-BhfP9ers.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DaV4b55t.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header><div><span class="eyebrow">P2P COMMUNITY</span><h1>GameChat</h1></div><span id="connection" class="status">offline</span></header>
+      <section class="setup" aria-label="接続設定">
+        <label>Room ID<input id="room" value="general" /></label>
+        <label>表示名<input id="name" value="Player" /></label>
+        <label>Signaling URL<input id="signaling" value="ws://127.0.0.1:8787/ws" /></label>
+        <button id="join">Join room</button>
+      </section>
+      <section class="chat">
+        <div class="messages" id="messages"><p class="empty">ルームに参加すると、ここに P2P メッセージが表示されます。</p></div>
+        <form id="composer"><input id="message" placeholder="メッセージを入力" autocomplete="off" disabled /><button disabled>送信</button></form>
+      </section>
+      <footer><button id="mute" disabled>🎤 Mute</button><button id="leave" disabled>Leave</button><span id="peers">Peers: 0</span><span id="network">ICE: idle</span></footer>
+      <div id="audio" class="audio"></div>
+    </main>
+  </body>
+</html>
