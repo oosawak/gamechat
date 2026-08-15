@@ -1,7 +1,7 @@
 # GameChat
 （開発中です、少々お待ちください）
 
-WebRTC を使った P2P テキストチャットと音声通話の最小実装です。接続確立に必要な SDP / ICE だけを Rust 製シグナリングサーバーが中継し、チャット本文と音声はブラウザ間で直接送受信します。
+WebRTC を使った P2P テキストチャットと音声通話の最小実装です。接続確立に必要な SDP / ICE だけを中継するシグナリングサーバーは Rust 版と Node.js 版の両方を置いてあり、チャット本文と音声はブラウザ間で直接送受信します。
 
 仕様書は [docs/GameChat_technical_spec_v0.1.md](docs/GameChat_technical_spec_v0.1.md) に保存しています。
 
@@ -38,8 +38,15 @@ wasm-pack build wasm --target web --out-dir ../web/src/wasm
 ターミナルを 2 つ使います。
 
 ```sh
-# ターミナル 1: シグナリングサーバー
+# ターミナル 1: Rust 版シグナリングサーバー
 cargo run -p gamechat-signaling
+```
+
+```sh
+# もしくは Node.js 版シグナリングサーバー
+cd signaling-node
+npm install
+npm start
 ```
 
 ```sh
@@ -100,3 +107,9 @@ git push
 ## 現時点の制約
 
 Google Groups 所属をシグナリング参加資格として検証する短期トークン、TURN、ビデオ、SFU、認証トークンは未実装です。シグナリングサーバーも永続 DB を持ちません。
+
+## シグナリングサーバーの場所
+
+- Rust 版: [signaling/src/main.rs](signaling/src/main.rs)
+- Node.js 版: [signaling-node/server.mjs](signaling-node/server.mjs)
+- 共有プロトコル: [protocol/src/lib.rs](protocol/src/lib.rs)
